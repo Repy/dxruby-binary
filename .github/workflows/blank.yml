@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby-pkgs@v1.33.2
+        with:
+          ruby-version: 3.3.6
+      - name: aaa
+        run: |
+         git clone https://github.com/mirichi/dxruby
+         cd dxruby
+         ridk enable
+         ruby extconf.rb
+         make
+         make install
+      
