@@ -6,7 +6,7 @@ function Build-DXRuby($url, $installpath, $ver) {
     Invoke-WebRequest "$url" -OutFile ".\rubyinstaller.exe"
     Start-Process -Wait -FilePath ".\rubyinstaller.exe" -ArgumentList "/silent", "/currentuser"
     Remove-Item ".\rubyinstaller.exe"
-    Start-Process -NoNewWindow -Wait -FilePath "pwsh.exe" -ArgumentList "$installpath\bin\ridk.ps1", "enable"
+    . "$installpath\bin\ridk.ps1" "enable"
     Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "ruby.exe" -ArgumentList "extconf.rb"
     Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "make.exe" -ArgumentList "CCDLFLAGS="" -fpermissive """
     New-Item -ItemType Directory ".\dxruby\lib\$ver"
