@@ -1,10 +1,11 @@
+$ErrorActionPreference = "Stop"
 
 function Build-DXRuby($url, $installpath, $ver) {
     Invoke-WebRequest "$url" -OutFile ".\rubyinstaller.exe"
     Start-Process -Wait -FilePath ".\rubyinstaller.exe" -ArgumentList "/silent", "/currentuser"
     Remove-Item ".\rubyinstaller.exe"
     Start-Process -NoNewWindow -Wait -FilePath "git.exe" -ArgumentList "clone", "https://github.com/mirichi/dxruby.git"
-    Start-Process -NoNewWindow -Wait -FilePath "$installpath\bin\ridk.ps1" -ArgumentList "enable"
+    Start-Process -NoNewWindow -Wait -FilePath "pwsh.exe" -ArgumentList "$installpath\bin\ridk.ps1", "enable"
     Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "ruby.exe" -ArgumentList "extconf.rb"
     Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "make.exe"
     New-Item -ItemType Directory ".\$ver"
