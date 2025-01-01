@@ -13,12 +13,7 @@ jobs:
       - name: aaa
         shell: pwsh
         run: |
-          Invoke-WebRequest "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.6-2/rubyinstaller-devkit-3.3.6-2-x86.exe" -OutFile "rubyinstaller-devkit-3.3.6-2-x86.exe"
-          Start-Process -Wait -FilePath "rubyinstaller-devkit-3.3.6-2-x86.exe" -ArgumentList "/silent", "/currentuser"
-          git.exe clone https://github.com/mirichi/dxruby.git
-          C:\Ruby33\bin\ridk.ps1 enable
-          Set-Location .\dxruby\ext\dxruby
-          ruby extconf.rb
+          ruby-3.3.ps1
 
 
       
