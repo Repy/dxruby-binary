@@ -1,4 +1,4 @@
-name: dispatch release
+name: Release
 
 on:
   workflow_dispatch:
@@ -30,4 +30,4 @@ jobs:
           HEADSHA="$(jq -r .headSha output.json)"
           git tag -a "${TAGNAME}" -m "${TAGNAME} ${HEADSHA}" "${HEADSHA}"
           git push origin "${TAGNAME}"
-          gh release create "${TAGNAME}" "gem/dxruby-1.4.7.gem"
+          gh release create "${TAGNAME}" "./gem/dxruby-1.4.7.gem"

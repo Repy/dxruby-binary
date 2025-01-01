@@ -19,6 +19,8 @@ Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyI
 Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.6-2/rubyinstaller-devkit-3.3.6-2-x86.exe" "C:\Ruby33" "3.3" 
 Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.1-1/rubyinstaller-devkit-3.4.1-1-x86.exe" "C:\Ruby34" "3.4"
 
+Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "git.exe" -ArgumentList "config", "--global", "user.email", "you@example.com"
+Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "git.exe" -ArgumentList "config", "--global", "user.name", "Your Name"
 Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "git.exe" -ArgumentList "add", "lib\*\*.so"
 Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "git.exe" -ArgumentList "commit", "-m", "tmp"  
 Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "gem.cmd" -ArgumentList "build", ".\dxruby.gemspec"
