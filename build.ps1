@@ -21,4 +21,4 @@ Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyI
 
 Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "git.exe" -ArgumentList "add", "lib\*\*.so"
 Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "git.exe" -ArgumentList "commit", "-m", "tmp"  
-Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "gem.cmd" -ArgumentList "build" ".\dxruby.gemspec"
+Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "gem.cmd" -ArgumentList "build", ".\dxruby.gemspec"
