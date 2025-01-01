@@ -14,3 +14,8 @@ jobs:
         shell: pwsh
         run: |
           pwsh build.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: "gem"
+          path: "build/distributions/TOTPClient.zip"
+          if-no-files-found: error
