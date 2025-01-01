@@ -12,5 +12,5 @@ function Build-DXRuby($url, $installpath, $ver) {
     Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "make.exe" "clean"
 }
 
-Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.6-2/rubyinstaller-devkit-3.3.6-2-x86.exe", "C:\Ruby33", "3.3" 
-Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.1-1/rubyinstaller-devkit-3.4.1-1-x86.exe", "C:\Ruby34", "3.4"
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.6-2/rubyinstaller-devkit-3.3.6-2-x86.exe" "C:\Ruby33" "3.3" 
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.1-1/rubyinstaller-devkit-3.4.1-1-x86.exe" "C:\Ruby34" "3.4"
