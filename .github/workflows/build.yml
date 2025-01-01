@@ -14,4 +14,4 @@ jobs:
       - name: build
         shell: pwsh
         run: |
-          . build.ps1
+          pwsh build.ps1
