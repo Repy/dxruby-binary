@@ -5,14 +5,13 @@ on:
 jobs:
   build:
     runs-on: windows-2019
+    env:
+      GH_TOKEN: ${{ github.token }}
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: build
         shell: pwsh
         run: |
-          pwsh build.ps1
-      - uses: actions/upload-artifact@v4
-        with:
-          name: "gem"
-          path: "./dxruby/dxruby-1.4.7.gem"
-          if-no-files-found: error
+          . build.ps1
