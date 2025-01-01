@@ -1,0 +1,33 @@
+name: dispatch release
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Run ID
+        type: string
+        required: true
+      release_version:
+        description: version
+        type: string
+        required: true
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v4
+        with:
+          name: "gem"
+          run_id: "${{ github.event.inputs.run_id }}"
+      - name: Release
+        run: |
+          gh run view "${{ github.event.inputs.run_id }}" --json attempt,conclusion,createdAt,databaseId,displayTitle,event,headBranch,headSha,jobs,name,number,startedAt,status,updatedAt,url,workflowDatabaseId,workflowName > output.json
+          TAGNAME="${{ github.event.inputs.release_version }}"
+          HEADSHA="$(jq -r .headSha output.json)"
+          git tag -a "${TAGNAME}" -m "${TAGNAME} ${HEADSHA}" "${HEADSHA}"
+          git push origin "${TAGNAME}"
+          gh release create "${TAGNAME}" "gem/dxruby-1.4.7.gem"

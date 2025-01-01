@@ -17,5 +17,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: "gem"
-          path: ".\dxruby\dxruby-1.4.7.gem"
+          path: "./dxruby/dxruby-1.4.7.gem"
           if-no-files-found: error
