@@ -17,8 +17,6 @@ jobs:
         run: |
          git clone https://github.com/mirichi/dxruby
          cd dxruby\ext\dxruby
-         ridk enable
          ruby extconf.rb
          make
-         make install
       
