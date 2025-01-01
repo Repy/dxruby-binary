@@ -40,3 +40,8 @@ $TAGNAME = Get-Date -Format "yyyyMMddHHmm"
 Start-Process -NoNewWindow -Wait -FilePath "git.exe" -ArgumentList "tag", "-a", "${TAGNAME}", "-m", "${TAGNAME}"
 Start-Process -NoNewWindow -Wait -FilePath "git.exe" -ArgumentList "push", "origin", "${TAGNAME}"
 Start-Process -NoNewWindow -Wait -FilePath "gh.exe" -ArgumentList "release", "create", "${TAGNAME}", ".\dxruby\dxruby-1.4.7.gem"
+
+Write-Host "Ganarate gem repos"
+New-Item -ItemType Directory ".\repos"
+Move-Item ".\dxruby\dxruby-1.4.7.gem" ".\repos\dxruby-1.4.7.gem"
+Start-Process -NoNewWindow -Wait -WorkingDirectory ".\repos" -FilePath "gem.cmd" -ArgumentList "generate_index"
