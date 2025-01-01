@@ -43,5 +43,6 @@ Start-Process -NoNewWindow -Wait -FilePath "gh.exe" -ArgumentList "release", "cr
 
 Write-Host "Ganarate gem repos"
 New-Item -ItemType Directory ".\repos"
-Move-Item ".\dxruby\dxruby-1.4.7.gem" ".\repos\dxruby-1.4.7.gem"
+New-Item -ItemType Directory ".\repos\gems"
+Move-Item ".\dxruby\dxruby-1.4.7.gem" ".\repos\gems\dxruby-1.4.7.gem"
 Start-Process -NoNewWindow -Wait -WorkingDirectory ".\repos" -FilePath "gem.cmd" -ArgumentList "generate_index"
