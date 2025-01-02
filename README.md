@@ -5,10 +5,10 @@ x64版では動作しません。
 
 ## インストール方法
 
-ruby-dxruby-binaryがビルドしたレポジトリを指定することでダウンロードできます。
+dxruby-binaryがビルドしたレポジトリを指定することでダウンロードできます。
 
 ```
-gem install --source https://repy.github.io/ruby-dxruby-binary dxruby
+gem install --source https://repy.github.io/dxruby-binary dxruby
 ```
 
 ## Bundlerでのインストール(Gemfile)
@@ -16,7 +16,7 @@ gem install --source https://repy.github.io/ruby-dxruby-binary dxruby
 sourceを指定して記述してください。
 
 ```
-source "https://repy.github.io/ruby-dxruby-binary" do
+source "https://repy.github.io/dxruby-binary" do
   gem "dxruby"
 end
 ```
