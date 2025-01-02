@@ -6,7 +6,7 @@ Start-Process -Wait -FilePath ".\directx_Jun2010_redist.exe" -ArgumentList "/Q",
 Start-Process -Wait -FilePath "C:\directx\DXSETUP.exe" -ArgumentList "/silent"
 
 Write-Host "Clone DXRuby"
-Start-Process -NoNewWindow -Wait -FilePath "git.exe" -ArgumentList "clone", "https://github.com/mirichi/dxruby.git"
+Start-Process -NoNewWindow -Wait -FilePath "git.exe" -ArgumentList "clone", "https://github.com/Repy/dxruby.git"
 
 function Build-DXRuby($url, $installpath, $ver) {
     Write-Host "Install Ruby $ver with Devkit"
@@ -17,11 +17,16 @@ function Build-DXRuby($url, $installpath, $ver) {
     
     Write-Host "Build DXRuby for Ruby $ver"
     Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "ruby.exe" -ArgumentList "extconf.rb"
-    Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "make.exe" -ArgumentList "CCDLFLAGS="" -fpermissive """
+    Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "make.exe"
     New-Item -ItemType Directory ".\dxruby\lib\$ver"
     Move-Item ".\dxruby\ext\dxruby\dxruby.so" ".\dxruby\lib\$ver\dxruby.so"
     Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby\ext\dxruby" -FilePath "make.exe" -ArgumentList "clean"
 }
+
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.6-1/rubyinstaller-devkit-3.1.6-1-x64.exe" "C:\Ruby31-x64" "3.1_x64" 
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.6-1/rubyinstaller-devkit-3.2.6-1-x64.exe" "C:\Ruby32-x64" "3.2_x64" 
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.6-2/rubyinstaller-devkit-3.3.6-2-x64.exe" "C:\Ruby33-x64" "3.3_x64" 
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.1-1/rubyinstaller-devkit-3.4.1-1-x64.exe" "C:\Ruby34-x64" "3.4_x64"
 
 Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.6-1/rubyinstaller-devkit-3.1.6-1-x86.exe" "C:\Ruby31" "3.1" 
 Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.6-1/rubyinstaller-devkit-3.2.6-1-x86.exe" "C:\Ruby32" "3.2" 
