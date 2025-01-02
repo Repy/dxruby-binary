@@ -1,4 +1,4 @@
-# ruby-dxruby-binary
+# dxruby-binary
 
 Ruby 3.1 ～ 3.4のx86版で動作するDXRubyのビルドを配布しています。  
 x64版では動作しません。
