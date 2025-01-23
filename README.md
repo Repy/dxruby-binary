@@ -15,7 +15,8 @@ x64版ではSoundクラスは動作しませんので、音楽部分は他のラ
 3. スタートメニューから「Start Command Prompt with Ruby」を立ち上げます。
 4. ターミナルが立ち上がるので、以下のコマンドを入力します。
     ```
-    gem install --source https://repy.github.io/dxruby-binary dxruby
+    powershell -Command "Invoke-WebRequest -Uri https://repy.github.io/dxruby-binary/gems/dxruby-1.4.7.gem -OutFile dxruby-1.4.7.gem"
+    gem.cmd install -l dxruby
     ```
 
 ## Bundlerでのインストール(Gemfile)
@@ -26,12 +27,4 @@ sourceを指定して記述してください。
 source "https://repy.github.io/dxruby-binary" do
   gem "dxruby"
 end
-```
-
-## 手動でgemファイルをダウンロード
-
-手動インストールしたい人は右のReleasesからgemファイルをダウンロードし、gemファイルがあるディレクトリで以下のコマンドを実行してください。
-
-```
-gem install -l dxruby
 ```
