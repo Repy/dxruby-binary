@@ -24,14 +24,15 @@ function Build-DXRuby($url, $installpath, $ver) {
 }
 
 Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.6-1/rubyinstaller-devkit-3.1.6-1-x64.exe" "C:\Ruby31-x64" "3.1_x64" 
-Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.6-1/rubyinstaller-devkit-3.2.6-1-x64.exe" "C:\Ruby32-x64" "3.2_x64" 
-Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.6-2/rubyinstaller-devkit-3.3.6-2-x64.exe" "C:\Ruby33-x64" "3.3_x64" 
-Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.1-1/rubyinstaller-devkit-3.4.1-1-x64.exe" "C:\Ruby34-x64" "3.4_x64"
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x64.exe" "C:\Ruby32-x64" "3.2_x64" 
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x64.exe" "C:\Ruby33-x64" "3.3_x64" 
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x64.exe" "C:\Ruby34-x64" "3.4_x64"
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.5-1/rubyinstaller-devkit-4.0.5-1-x64.exe" "C:\Ruby34-x64" "4.0_x64"
 
 Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.6-1/rubyinstaller-devkit-3.1.6-1-x86.exe" "C:\Ruby31" "3.1" 
-Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.6-1/rubyinstaller-devkit-3.2.6-1-x86.exe" "C:\Ruby32" "3.2" 
-Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.6-2/rubyinstaller-devkit-3.3.6-2-x86.exe" "C:\Ruby33" "3.3" 
-Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.1-1/rubyinstaller-devkit-3.4.1-1-x86.exe" "C:\Ruby34" "3.4"
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.11-1/rubyinstaller-devkit-3.2.11-1-x86.exe" "C:\Ruby32" "3.2" 
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.3.11-1/rubyinstaller-devkit-3.3.11-1-x86.exe" "C:\Ruby33" "3.3" 
+Build-DXRuby "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.4.9-1/rubyinstaller-devkit-3.4.9-1-x86.exe" "C:\Ruby34" "3.4"
 
 Write-Host "Build DXRuby Gem"
 Start-Process -NoNewWindow -Wait -WorkingDirectory ".\dxruby" -FilePath "git.exe" -ArgumentList "config", "--global", "user.email", "you@example.com"
